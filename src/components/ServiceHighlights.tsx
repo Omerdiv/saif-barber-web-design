@@ -1,7 +1,7 @@
 
 import React from "react";
 import ServiceCard from "./ServiceCard";
-import { Scissors, Beard, User } from "lucide-react";
+import { Scissors, Razor, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -19,7 +19,7 @@ const ServiceHighlights = () => {
             className="animate-fade-in animate-delay-100"
           />
           <ServiceCard
-            icon={<Beard className="h-12 w-12" />}
+            icon={<Razor className="h-12 w-12" />}
             title="تشذيب ذقن وشارب"
             className="animate-fade-in animate-delay-200"
           />
