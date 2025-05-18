@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Phone, Clock, MapPin, Instagram } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -32,8 +33,32 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Quick Links */}
+        <div className="lg:col-span-1">
+          <h3 className="text-xl font-bold mb-4 border-b border-gray-700 pb-2">
+            روابط سريعة
+          </h3>
+          <div className="grid grid-cols-1 gap-2">
+            <Link to="/" className="text-gray-400 hover:text-white transition">
+              الرئيسية
+            </Link>
+            <Link to="/about" className="text-gray-400 hover:text-white transition">
+              حولنا
+            </Link>
+            <Link to="/services" className="text-gray-400 hover:text-white transition">
+              خدماتنا
+            </Link>
+            <Link to="/gallery" className="text-gray-400 hover:text-white transition">
+              معرض الأعمال
+            </Link>
+            <Link to="/faq" className="text-gray-400 hover:text-white transition">
+              الاسئلة الشائعة
+            </Link>
+          </div>
+        </div>
+
         {/* Map */}
-        <div className="lg:col-span-2">
+        <div className="lg:col-span-1">
           <h3 className="text-xl font-bold mb-4 border-b border-gray-700 pb-2">
             خريطة الموقع
           </h3>
@@ -51,18 +76,8 @@ const Footer = () => {
 
       {/* Bottom Footer */}
       <div className="container mx-auto px-4 mt-12 pt-4 border-t border-gray-700">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-4 md:mb-0">
-            <p>© {new Date().getFullYear()} صالون سيف للحلاقة - جميع الحقوق محفوظة</p>
-          </div>
-          <div className="flex space-x-4 space-x-reverse">
-            <a href="#" className="text-gray-400 hover:text-white transition">
-              سياسة الخصوصية
-            </a>
-            <a href="#" className="text-gray-400 hover:text-white transition">
-              الشروط والأحكام
-            </a>
-          </div>
+        <div className="flex justify-center">
+          <p>© {new Date().getFullYear()} صالون سيف للحلاقة - جميع الحقوق محفوظة</p>
         </div>
       </div>
     </footer>

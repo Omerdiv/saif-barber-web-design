@@ -1,14 +1,18 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-import heroBackground from "../assets/hero-barber.jpg";
+import { MessageSquare } from "lucide-react";
 
 const HeroSection = () => {
+  const handleWhatsAppClick = () => {
+    window.open("https://wa.me/966501899860", "_blank");
+  };
+
   return (
     <section
       className="relative min-h-screen bg-cover bg-center pt-24 flex items-center"
       style={{
-        backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.3)), url('/src/assets/hero-barber.jpg')`,
+        backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.3)), url('/lovable-uploads/78faf805-d573-4c90-b6be-e12161a792ec.png')`,
       }}
     >
       <div className="container mx-auto px-4">
@@ -20,7 +24,12 @@ const HeroSection = () => {
             خبرة تمتد لأكثر من 3 سنوات في قلب غبيرة، الرياض. استمتع بأرقى خدمات
             الحلاقة الرجالية، مع أجواء مريحة تناسب جميع الأعمار.
           </p>
-          <Button className="button-primary text-lg" size="lg">
+          <Button 
+            className="button-primary text-lg flex items-center gap-2" 
+            size="lg"
+            onClick={handleWhatsAppClick}
+          >
+            <MessageSquare className="w-5 h-5" />
             احجز موعدك الآن
           </Button>
         </div>

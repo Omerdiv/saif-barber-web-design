@@ -18,7 +18,7 @@ const TestimonialCard = ({
   return (
     <div
       className={cn(
-        "card-gradient rounded-lg p-6 shadow card-hover",
+        "backdrop-blur-lg bg-white/50 rounded-lg p-6 shadow card-hover border border-red-500 shadow-glow",
         className
       )}
     >

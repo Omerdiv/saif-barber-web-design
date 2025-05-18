@@ -17,16 +17,19 @@ const ServiceHighlights = () => {
             icon={<Scissors className="h-12 w-12" />}
             title="قص الشعر"
             className="animate-fade-in animate-delay-100"
+            image="/lovable-uploads/8b6fe6e7-c0d8-4220-bb5a-99f553340352.png"
           />
           <ServiceCard
             icon={<Scissors className="h-12 w-12 rotate-45" />}
             title="تشذيب ذقن وشارب"
             className="animate-fade-in animate-delay-200"
+            image="/lovable-uploads/429a519e-ac2f-4d0f-ad78-e4e90ce136be.png"
           />
           <ServiceCard
             icon={<User className="h-12 w-12" />}
             title="حلاقة أطفال"
             className="animate-fade-in animate-delay-300"
+            image="/lovable-uploads/2374055e-516a-467a-9df9-a493e7e2a8d9.png"
           />
         </div>
         <div className="mt-12 text-center">

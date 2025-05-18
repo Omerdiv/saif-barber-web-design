@@ -1,33 +1,59 @@
 
 import React from "react";
-import TestimonialCard from "./TestimonialCard";
 import { Button } from "@/components/ui/button";
+import { 
+  Carousel, 
+  CarouselContent, 
+  CarouselItem, 
+  CarouselNext, 
+  CarouselPrevious 
+} from "@/components/ui/carousel";
+import TestimonialCard from "./TestimonialCard";
 
 const Testimonials = () => {
   return (
     <section className="section-padding bg-accent">
       <div className="container mx-auto">
         <h2 className="heading-secondary text-center mb-12">آراء العملاء</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <TestimonialCard
-            quote="موقع جميل جدأ موفقين ان شاء الله"
-            author="مالك الأمين"
-            date="منذ سنتين"
-            className="animate-fade-in animate-delay-100"
-          />
-          <TestimonialCard
-            quote="أحسن الصوالين التي زرتها"
-            author="بلال النور"
-            date="منذ سنتين"
-            className="animate-fade-in animate-delay-200"
-          />
-          <TestimonialCard
-            quote="موقع جميل يستحق الزيارة"
-            author="بابكر سيف"
-            date="منذ 3 سنوات"
-            className="animate-fade-in animate-delay-300"
-          />
-        </div>
+        
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+            autoplay: true,
+            interval: 5000,
+          }}
+          className="w-full max-w-4xl mx-auto"
+        >
+          <CarouselContent>
+            <CarouselItem className="md:basis-1/1">
+              <TestimonialCard
+                quote="موقع جميل جدأ موفقين ان شاء الله"
+                author="مالك الأمين"
+                date="منذ سنتين"
+              />
+            </CarouselItem>
+            <CarouselItem className="md:basis-1/1">
+              <TestimonialCard
+                quote="أحسن الصوالين التي زرتها"
+                author="بلال النور"
+                date="منذ سنتين"
+              />
+            </CarouselItem>
+            <CarouselItem className="md:basis-1/1">
+              <TestimonialCard
+                quote="موقع جميل يستحق الزيارة"
+                author="بابكر سيف"
+                date="منذ 3 سنوات"
+              />
+            </CarouselItem>
+          </CarouselContent>
+          <div className="flex justify-center mt-4">
+            <CarouselPrevious className="relative static mr-2" />
+            <CarouselNext className="relative static ml-2" />
+          </div>
+        </Carousel>
+
         <div className="mt-12 text-center">
           <h3 className="text-xl font-semibold mb-4">
             نتشرف بزيارتك لصالوننا ونسعد بتقييمك لخدماتنا

@@ -1,12 +1,13 @@
 
 import React, { useState, useEffect } from "react";
 import { Phone, MessageSquare, Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,10 +28,18 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const isActive = (path: string) => {
+    return location.pathname === path;
+  };
+
+  const handleWhatsAppClick = () => {
+    window.open("https://wa.me/966501899860", "_blank");
+  };
+
   return (
     <header
-      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"
+      className={`fixed top-0 z-50 w-full transition-all duration-300 backdrop-blur-lg ${
+        isScrolled ? "bg-white/70 shadow-md py-2" : "bg-transparent py-4"
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
@@ -43,27 +52,42 @@ const Navbar = () => {
         <nav className="hidden md:block">
           <ul className="flex items-center space-x-2 space-x-reverse">
             <li>
-              <Link to="/" className="nav-link nav-link-active">
+              <Link 
+                to="/" 
+                className={`nav-link ${isActive('/') ? 'text-primary after:scale-x-100' : ''}`}
+              >
                 الرئيسية
               </Link>
             </li>
             <li>
-              <Link to="/about" className="nav-link">
+              <Link 
+                to="/about" 
+                className={`nav-link ${isActive('/about') ? 'text-primary after:scale-x-100' : ''}`}
+              >
                 حولنا
               </Link>
             </li>
             <li>
-              <Link to="/services" className="nav-link">
+              <Link 
+                to="/services" 
+                className={`nav-link ${isActive('/services') ? 'text-primary after:scale-x-100' : ''}`}
+              >
                 خدماتنا
               </Link>
             </li>
             <li>
-              <Link to="/gallery" className="nav-link">
+              <Link 
+                to="/gallery" 
+                className={`nav-link ${isActive('/gallery') ? 'text-primary after:scale-x-100' : ''}`}
+              >
                 معرض الأعمال
               </Link>
             </li>
             <li>
-              <Link to="/faq" className="nav-link">
+              <Link 
+                to="/faq" 
+                className={`nav-link ${isActive('/faq') ? 'text-primary after:scale-x-100' : ''}`}
+              >
                 الاسئلة الشائعة
               </Link>
             </li>
@@ -76,7 +100,7 @@ const Navbar = () => {
             <Phone className="h-4 w-4 ml-2" />
             <span dir="ltr">+966 50 189 9860</span>
           </Button>
-          <Button className="flex items-center">
+          <Button className="flex items-center" onClick={handleWhatsAppClick}>
             <MessageSquare className="h-4 w-4 ml-2" />
             واتساب
           </Button>
@@ -93,7 +117,7 @@ const Navbar = () => {
 
         {/* Mobile menu */}
         <div
-          className={`fixed inset-0 bg-white flex flex-col justify-center items-center transition-transform duration-300 ease-in-out ${
+          className={`fixed inset-0 backdrop-blur-xl bg-white/90 flex flex-col justify-center items-center transition-transform duration-300 ease-in-out ${
             isMenuOpen ? "translate-x-0" : "translate-x-full"
           } md:hidden`}
         >
@@ -102,7 +126,7 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/"
-                  className="nav-link text-xl"
+                  className={`nav-link text-xl ${isActive('/') ? 'text-primary' : ''}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   الرئيسية
@@ -111,7 +135,7 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/about"
-                  className="nav-link text-xl"
+                  className={`nav-link text-xl ${isActive('/about') ? 'text-primary' : ''}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   حولنا
@@ -120,7 +144,7 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/services"
-                  className="nav-link text-xl"
+                  className={`nav-link text-xl ${isActive('/services') ? 'text-primary' : ''}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   خدماتنا
@@ -129,7 +153,7 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/gallery"
-                  className="nav-link text-xl"
+                  className={`nav-link text-xl ${isActive('/gallery') ? 'text-primary' : ''}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   معرض الأعمال
@@ -138,7 +162,7 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/faq"
-                  className="nav-link text-xl"
+                  className={`nav-link text-xl ${isActive('/faq') ? 'text-primary' : ''}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   الاسئلة الشائعة
@@ -151,7 +175,7 @@ const Navbar = () => {
               <Phone className="h-4 w-4 ml-2" />
               <span dir="ltr">+966 50 189 9860</span>
             </Button>
-            <Button className="flex items-center justify-center">
+            <Button className="flex items-center justify-center" onClick={handleWhatsAppClick}>
               <MessageSquare className="h-4 w-4 ml-2" />
               واتساب
             </Button>
