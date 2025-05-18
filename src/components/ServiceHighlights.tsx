@@ -17,7 +17,7 @@ const ServiceHighlights = () => {
             icon={<Scissors className="h-12 w-12" />}
             title="قص الشعر"
             className="animate-fade-in animate-delay-100"
-            image="/lovable-uploads/8b6fe6e7-c0d8-4220-bb5a-99f553340352.png"
+            image="/lovable-uploads/hair_1.webp"
           />
           <ServiceCard
             icon={<Scissors className="h-12 w-12 rotate-45" />}
